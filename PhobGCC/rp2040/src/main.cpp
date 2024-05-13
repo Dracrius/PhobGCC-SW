@@ -848,29 +848,29 @@ int main() {
 		reset_usb_boot(0, 0);
 	}
 
-	if(_hardware.Z) { //hold Z on powerup for PhobVision
+	/* if(_hardware.Z) { //hold Z on powerup for PhobVision
 		_videoOut = true;
 		set_sys_clock_khz(1000*250, true);//overclock to 250 khz, to alleviate performance issues
-	}
+	} */
 
 	multicore_lockout_victim_init();
 
 	multicore_launch_core1(second_core);
 
 	//Run comms unless Z is held while plugging in
-	if(_hardware.Z) {
+	/* if(_hardware.Z) {
 #ifdef BUILD_DEV
 		const int version = -SW_VERSION;
 #else //BUILD_DEV
 		const int version = SW_VERSION;
 #endif //BUILD_DEV
 		videoOut(_pinDac0, _btn, _hardware, _raw, _controls, _aStickParams, _cStickParams, _dataCapture, _sync, _pleaseCommit, _currentCalStep, version);
-	} else {
+	} else { */
 		enterMode(_pinTX,
 				_pinRumble,
 				_pinBrake,
 				_rumblePower,
 				buttonsToGCReport);
-	}
+	//}
 
 }
