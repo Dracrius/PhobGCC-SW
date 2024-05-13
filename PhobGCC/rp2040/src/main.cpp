@@ -842,11 +842,11 @@ int main() {
 	initializeButtons(_pinList, _btn, _controls.lTrigInitial, _controls.rTrigInitial);
 
 	//Read buttons on startup to determine what mode to begin in
-	readButtons(_pinList, _hardware);
+	/* readButtons(_pinList, _hardware);
 
 	if(_hardware.S) { //hold start on powerup for BOOTSEL
 		reset_usb_boot(0, 0);
-	}
+	} */
 
 	/* if(_hardware.Z) { //hold Z on powerup for PhobVision
 		_videoOut = true;
